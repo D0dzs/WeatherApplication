@@ -1,6 +1,6 @@
 // https://www.weatherapi.com/my/
 // Insert your API key here
-const API_KEY = "";
+const API_KEY = "PASTE_YOUR_KEY_HERE";
 
 const requestDatas = async () => {
   var q = document.getElementById("location-input");
