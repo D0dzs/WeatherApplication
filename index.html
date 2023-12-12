@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Application</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Latest TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="dark:bg-gray-950 dark:text-white">
+    <noscript
+      >Engedélyezd a JavaScript-et a böngészőnek, hogy működjön az
+      alkalmazás!</noscript
+    >
+    <main>
+      <div id="root">
+        <div id="wrapper" class="flex flex-col gap-2 md:gap-4 lg:gap-6">
+          <div class="grid container mx-auto p-6 justify-center">
+            <h1 class="text-4xl font-bold mb-4">Weather Information</h1>
+            <div class="grid w-full max-w-sm items-center gap-1.5">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="location-input"
+                >Location</label
+              ><input
+                class="text-black flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                id="location-input"
+                placeholder="Enter location (ig. Hungary)"
+                type="text"
+              />
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                Enter the location you want to know the weather of.
+              </p>
+            </div>
+            <button
+              id="querryWeather"
+              class="bg-blue-400 text-white transition-colors hover:bg-blue-500 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4"
+              onclick="requestDatas()"
+            >
+              Get Target Weather Info
+            </button>
+          </div>
+          <div>
+            <div class="flex justify-center">
+              <div
+                class="rounded-lg border bg-card text-card-foreground shadow-sm m-4 p-4 w-[600px]"
+                data-v0-t="card"
+              >
+                <div class="flex flex-col space-y-1.5 p-6">
+                  <h2 class="text-2xl font-bold">Weather Details</h2>
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center space-x-4">
+                    <img
+                      id="weatherImage"
+                      class="relative flex shrink-0 overflow-hidden rounded w-16 h-16"
+                      src="./image/missing-image.png"
+                      alt="Weather Icon"
+                    ></img>
+                    <div class="space-y-2">
+                      <h3 id="locName" class="text-xl font-bold">Location Name</h3>
+                      <p id="rgCountry" class="text-gray-500">Region, Country</p>
+                      <p id="tzDetails" class="text-sm text-gray-400">
+                        Timezone ID, Local time
+                      </p>
+                    </div>
+                  </div>
+                  <div class="mt-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div
+                        class="bg-blue-500 text-white inline-flex items-center rounded border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+                      >
+                        Last Updated
+                      </div>
+                      <p id="lastUpdated" class="text-sm">Last updated time</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <div
+                        class="text-white bg-orange-500 inline-flex items-center rounded border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+                      >
+                        Temperature
+                      </div>
+                      <p id="tempCF" class="text-sm">
+                        Temp in Celsius / Fahrenheit
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <div
+                        class="bg-yellow-500 inline-flex items-center rounded border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+                      >
+                        Weather
+                      </div>
+                      <p id="weatherP" class="text-sm">Weather description</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
